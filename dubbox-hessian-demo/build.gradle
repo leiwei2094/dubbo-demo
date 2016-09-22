@@ -21,10 +21,20 @@ project(':api') {
 }
 
 project(':provider'){
+    apply plugin: 'war'
+    apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
     dependencies {
         compile project(':api')
         compile("com.alibaba:dubbo:2.8.4")
+        compile("org.springframework:spring-webmvc:3.2.9.RELEASE")
+        compile("com.caucho:hessian:4.0.7")
+        compile("com.101tec:zkclient:0.9")
+    }
+
+    gretty{
+        port = 8081
+        contextPath = '/provider'
     }
 }
 
