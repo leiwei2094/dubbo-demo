@@ -6,6 +6,9 @@
 2. go to `dubbox-hessian-demo/provider` directory, run `gradle appRun`. The embeded Jetty server started successfully, 
 3. Access `http://localhost:8081/index.html`, but it will have 404 error. Need to investigate on it. It should be a Spring MVC configuration mistake, not from Dubbo side. But it is better to fix it.
 
+# Run Consumer
+Not complete.....But it is similar to Provider.
+
 
 ========================================================
 ========================================================
