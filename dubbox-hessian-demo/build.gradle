@@ -34,7 +34,6 @@ project(':provider'){
 
     gretty{
         port = 8081
-        contextPath = '/provider'
     }
 }
 
