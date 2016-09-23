@@ -21,10 +21,10 @@
 
 Dubbo和Dubbox在配置方面是否有差异，2者兼容性如何?
 
-服务治理
+# 服务治理
 •Zookeeper配置
 
-RPC协议
+# RPC协议
 •Hession
 •HTTP
 •REST
