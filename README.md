@@ -2,7 +2,7 @@
 
 
 # Run Provider    
-1. Sratr Zookeeper
+1. [Install, configure and sratr Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)
 2. go to `dubbox-hessian-demo/provider` directory, run `gradle appRun`. The embeded Jetty server started successfully, 
 3. Access `http://localhost:8081/provider`, it will show a "hello world" page.
 
