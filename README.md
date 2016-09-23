@@ -25,13 +25,13 @@ Not complete.....But it is similar to Provider.
 Dubbo和Dubbox在配置方面是否有差异，2者兼容性如何?
 
 # 服务治理
-•Zookeeper配置
+Zookeeper配置
 
 # RPC协议
-•Hession
-•HTTP
-•REST
-•Dubbo
+* Hession
+* HTTP
+* REST
+* Dubbo
 
 |      协议      |   传输协议         |       数据格式      |      性能       |       跨平台/语言       |
 | -------------- | ------------------ | ------------------- | --------------- | ----------------------- |
