@@ -5,13 +5,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="demo" owner="leiwei" organization="leiwei"/>
+    <dubbo:application name="dubbo-demo-provider" />
 
-    <dubbo:protocol name="hessian" port="8080" server="servlet" />
+    <dubbo:protocol name="hessian" port="8081" server="servlet" />
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
-    <bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>
+    <dubbo:annotation package="com.leolei.dubbodemo.provider" />
 
-    <dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService"/>
+    <!--<bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>-->
+
+    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService"/>-->
 </beans>
