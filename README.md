@@ -2,9 +2,9 @@
 
 
 # Run Provider    
-1. Sratr Zookeeper
+1. [Install, configure and sratr Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)
 2. go to `dubbox-hessian-demo/provider` directory, run `gradle appRun`. The embeded Jetty server started successfully, 
-3. Access `http://localhost:8081/index.html`, but it will have 404 error. Need to investigate on it. It should be a Spring MVC configuration mistake, not from Dubbo side. But it is better to fix it.
+3. Access `http://localhost:8081/provider`, it will show a "hello world" page.
 
 # Run Consumer
 Not complete.....But it is similar to Provider.
