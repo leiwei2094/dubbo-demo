@@ -1,15 +1,19 @@
 # dubbo-demo
 
+这里有2个Demo，分别是
+1. Dubbox 2.8.4 + Spring3 + Dubbo协议
+2. Dubbox 2.8.4 + Spring3 + Hessian协议
 
-# Run Provider    
-1. [Install, configure and sratr Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)
-2. go to `dubbox-hessian-demo/provider` directory, run `gradle appRun`. The embeded Jetty server started successfully, 
-3. Access `http://localhost:8081/provider`, it will show a "hello world" page.
+两个Demo都可以成功运行。使用了gradle Gretty插件，提供了内嵌的Jetty容器，不用安装额外的Tomcat或jetty容器。
 
-# Run Consumer
-1. go to `dubbox-hessian-demo/provider` directory, run `gradle appRun`.
-2. Access `http://localhost:8082/consumer/hello`. Throw error: com.caucho.hessian.client.HessianRuntimeException: com.caucho.hessian.io.HessianProtocolException: '<' is an unknown code".
-
+使用方法如下：
+**运行Zookeeper**
+安装，配置Zookeeper，然后启动Zookeeper的server。[Install, configure and sratr Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)
+**运行Provoder**
+进入`provider`目录，执行`gradle appRun`。会启动web容器并运行应用。
+**运行Consumer**
+进入`consumer`目录，执行`gradle appRun`。
+浏览器中访问`http://localhost:8082/hello` 或`http://localhost:8082/user`.其中`/hello`是传递简单String作为参数，`/user`是传递自定义类型*User*作为接口参数。
 
 ========================================================
 ========================================================
