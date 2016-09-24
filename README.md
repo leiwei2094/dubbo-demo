@@ -15,6 +15,12 @@
 进入`consumer`目录，执行`gradle appRun`。    
 浏览器中访问`http://localhost:8082/hello` 或`http://localhost:8082/user`.其中`/hello`是传递简单String作为参数，`/user`是传递自定义类型*User*作为接口参数。
 
+
+一些问题：    
+1. 现在是在xml中一个个声明dubbo暴露的服务(`dubbo:service`)和依赖的远程引用(`dubbo:reference`)。这方式显然不好，最好是使用spring的自动扫描和自动装配。Dubbo提供了这样的annotation，比如@Service和@Reference。当使用的时候，出现了一些问题。客户端调用IHelloService的sayHello方法时，结果调用了远程服务IUserService的sayHello方法去了，抛出异常IUserService没有提供sayHello方法。    
+2. 如果一个服务有部署多个实例，那么服务暴露的端口是不一样的。如何灵活配置。hessian的端口是要和web容器暴露的端口一致的。    
+
+
 ========================================================
 ========================================================
 =======================================================
