@@ -1,6 +1,6 @@
 package com.leolei.dubbodemo.api;
 
-public class User {
+public class User implements java.io.Serializable{
     private String name;
 
     public User(String name) {
