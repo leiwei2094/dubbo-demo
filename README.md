@@ -1,8 +1,8 @@
 # dubbo-demo
 
-这里有2个Demo，分别是
-1. Dubbox 2.8.4 + Spring3 + Dubbo协议
-2. Dubbox 2.8.4 + Spring3 + Hessian协议
+这里有2个Demo，分别是    
+1. Dubbox 2.8.4 + Spring3 + Dubbo协议    
+2. Dubbox 2.8.4 + Spring3 + Hessian协议    
 
 两个Demo都可以成功运行。使用了gradle Gretty插件，提供了内嵌的Jetty容器，不用安装额外的Tomcat或jetty容器。
 
