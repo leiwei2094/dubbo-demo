@@ -13,10 +13,10 @@
 
 
     <!-- Scan the package and the sub package-->
-    <context:component-scan base-package="com.leolei.dubbodemo.provider" />
+    <context:component-scan base-package="com.leolei.dubbodemo.consumer.controller" />
 
     <!-- Don't handle the static resource-->
-    <!--<mvc:default-servlet-handler />-->
+    <mvc:default-servlet-handler />
 
     <!-- If you use annotation you must configure following settings -->
     <mvc:annotation-driven/>
