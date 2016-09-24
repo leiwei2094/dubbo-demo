@@ -1,0 +1,5 @@
+rootProject.name = 'dubbox2.8.4-spring3-http'
+include 'api'
+include 'provider'
+include 'consumer'
+
