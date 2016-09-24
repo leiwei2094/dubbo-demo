@@ -1,0 +1,55 @@
+allprojects {
+    group = 'com.leolei'
+    version = '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+project(':api') {
+
+}
+
+project(':provider'){
+    apply plugin: 'war'
+    apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+    dependencies {
+        compile project(':api')
+        compile("com.alibaba:dubbo:2.8.4")
+        compile("org.springframework:spring-webmvc:3.2.9.RELEASE")
+        compile("com.caucho:hessian:4.0.7")
+        compile("com.101tec:zkclient:0.9")
+    }
+
+    gretty{
+        port = 8081
+    }
+}
+
+project(':consumer') {
+    apply plugin: 'war'
+    apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+    dependencies {
+        compile project(':api')
+        compile("com.alibaba:dubbo:2.8.4")
+        compile("org.springframework:spring-webmvc:3.2.9.RELEASE")
+        compile("com.caucho:hessian:4.0.7")
+        compile("com.101tec:zkclient:0.9")
+    }
+
+    gretty{
+        port = 8082
+    }
+}

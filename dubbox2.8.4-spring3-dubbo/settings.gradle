@@ -1,0 +1,5 @@
+rootProject.name = 'dubbodemo-dubbox2.8.4-spring3-dubbo'
+include 'api'
+include 'provider'
+include 'consumer'
+
