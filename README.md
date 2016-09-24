@@ -7,7 +7,8 @@
 3. Access `http://localhost:8081/provider`, it will show a "hello world" page.
 
 # Run Consumer
-Not complete.....But it is similar to Provider.
+1. go to `dubbox-hessian-demo/provider` directory, run `gradle appRun`.
+2. Access `http://localhost:8082/consumer/hello`. Throw error: com.caucho.hessian.client.HessianRuntimeException: com.caucho.hessian.io.HessianProtocolException: '<' is an unknown code".
 
 
 ========================================================
