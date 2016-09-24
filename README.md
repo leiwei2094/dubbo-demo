@@ -6,9 +6,9 @@
 
 两个Demo都可以成功运行。使用了gradle Gretty插件，提供了内嵌的Jetty容器，不用安装额外的Tomcat或jetty容器。
 
-使用方法如下：
+使用方法如下：    
 **运行Zookeeper**    
-安装，配置Zookeeper，然后启动Zookeeper的server。[Install, configure and sratr Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)
+安装，配置Zookeeper，然后启动Zookeeper的server。[Install, configure and sratr Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)    
 **运行Provoder**    
 进入`provider`目录，执行`gradle appRun`。会启动web容器并运行应用。
 **运行Consumer**    
