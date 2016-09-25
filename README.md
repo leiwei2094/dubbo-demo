@@ -34,7 +34,7 @@
 | Spring 版本  | 2                 | 3                 |
 | 是否维护     | no                | dangdang          |
 
-Dubbox Spring v4 可以参考 http://www.cnblogs.com/yjmyzz/p/update-dubbo-to-spring-4-and-add-log4j2-support.html
+Dubbox Spring v4 可以参考 [update-dubbo-to-spring-4](http://www.cnblogs.com/yjmyzz/p/update-dubbo-to-spring-4-and-add-log4j2-support.html)
 
 Dubbo也可以和新版本的spring集成，需要排除自身的spring依赖，如下，   
 ```java
