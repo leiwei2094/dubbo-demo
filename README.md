@@ -52,8 +52,7 @@ Zookeeper配置
 | Dubbo + Java序列化        |  TCP       |   二进制     |                   | Java序列化二进制数据不能跨语言     |                             
 | Hessian + Hessian序列化   |  HTTP      |   二进制     |                   | Hessian序列化二进制数据可跨语言    |          
 
-# Admin
-
+# Dubbo Admin    
 Dubbo提供了Admin的监控中心，研究它的使用。如何部署，能提供什么数据的监控。
 
 # Zookeeper监控和管理
