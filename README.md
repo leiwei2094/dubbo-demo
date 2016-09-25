@@ -9,7 +9,7 @@
 
 使用方法如下：    
 **1. 运行Zookeeper**    
-安装，配置Zookeeper，然后启动Zookeeper的server。[Install, configure and sratr Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)    
+安装，配置Zookeeper，然后启动Zookeeper的server。[Install, configure and srart Zookeeper server](https://github.com/Leo-Lei/blog/blob/master/source/_posts/zookeeper.md)    
 **2. 运行Provoder**    
 进入`provider`目录，执行`gradle appRun`。会启动web容器并运行应用。    
 **3. 运行Consumer**    
@@ -63,6 +63,8 @@ Zookeeper配置
 
 # Dubbo Admin    
 Dubbo提供了Admin的监控中心，研究它的使用。如何部署，能提供什么数据的监控。
+目前为止，发现原生DUBBO Admin不支持JAVA 1.8， 解决方案，未验证 https://github.com/alibaba/dubbo/issues/50
+DUBBOX Admin没有这个问题，但是这个工具本身存在大量BUG, 对今后维护会产生一定影响。
 
 # Dubbo 异常捕获    
 客户端调用远程服务，如果远程服务抛出了异常，客户端能否捕获到异常，捕获到什么类型的异常?      
@@ -81,6 +83,10 @@ Zookeeper的图形化管理工具:
 **使用Zookeeper做配置管理**    
 如何更Zookeeper中的数据，是否需要有一个配置管理界面可以管理更新数据，然后Zookeeer会将更改通知到各个Zookeeper节点。
 Zookeeper节点接收到更新通知，节点所在的应用如何去使用新的数据。比如，如果应用只是在第一次启动时去读Zookeeper节点的数据，然后缓存。这样即使Zookeeper节点接收到通知，更新了数据，应用依然读的是缓存中的老数据，所以需要添加一个layer来管理这些数据的更新。 
+
+关于配置管理的实现，有现成的，但比较复杂，例如[DisConf](https://github.com/knightliao/disconf-demos-java/)，现阶段只要合理使用Zookeeper API 就可以完成大部分需要的功能，当然在此之上建立一层Facade是需要的。
+
+关于配置编辑更新的实现，如上，也可以参考[zkpublisher](https://github.com/javachen/learning-hadoop/tree/master/zkpublisher)
 
 # Resources      
 [Dubbox-REST-Demo](http://dangdangdotcom.github.io/dubbox/rest.html)         
