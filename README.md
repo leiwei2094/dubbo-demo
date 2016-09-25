@@ -69,7 +69,7 @@ Dubbo提供了Admin的监控中心，研究它的使用。如何部署，能提�
 总的结果就是:      
 1. 不管怎样，客户端都能捕获到异常，只是异常的类型在不同场景下会有所不同。    
 2. 如果服务端抛出的异常，客户端认识，那么可以正确的获得具体的异常类型。比如JDK自带的异常，客户端当然是有这些类的元数据的，可以获得准确的异常。如果该异常在服务的借口中声明了，客户端也可以拿到具体的异常。     
-3. 如果服务端抛出的是自定义异常，且该异常在服务接口中没定义，那么客户端就只能捕获一个`com.caucho.hessian.io.HessianServiceException`.但是原始异常的error message在`HessianServiceException`中会保留。     
+3. 如果服务端抛出的是自定义异常，且该异常在服务接口中没定义，那么客户端就只能捕获一个`com.caucho.hessian.io.HessianServiceException`(如果使用hessian协议).但是原始异常的error message在`HessianServiceException`中会保留。     
 
 # Zookeeper监控和管理
 Zookeeper的图形化管理工具:    
