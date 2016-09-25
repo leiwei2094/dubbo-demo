@@ -36,13 +36,13 @@
 
 Dubbox Spring v4 可以参考 http://www.cnblogs.com/yjmyzz/p/update-dubbo-to-spring-4-and-add-log4j2-support.html
 
-Dubbo也可以和新版本的spring集成，需要排除自身的spring依赖，如下，
-
+Dubbo也可以和新版本的spring集成，需要排除自身的spring依赖，如下，   
+```java
         compile("com.alibaba:dubbo:2.5.3"){
             exclude(module: 'spring')
             exclude(module: 'netty')
         }
-
+```    
 Dubbo和Dubbox在配置方面是否有差异，2者兼容性如何?
 
 # 服务治理
