@@ -56,6 +56,11 @@ Zookeeper配置
 
 Dubbo提供了Admin的监控中心，研究它的使用。如何部署，能提供什么数据的监控。
 
+# Zookeeper监控和管理
+Zookeeper的图形化管理工具:    
+* [node-zk-browser](https://github.com/killme2008/node-zk-browser)    
+* [zk-web](https://github.com/qiuxiafei/zk-web)    
+
 # 配置管理
 
 **使用Zookeeper做配置管理**    
