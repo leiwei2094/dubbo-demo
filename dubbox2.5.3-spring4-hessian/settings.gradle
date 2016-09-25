@@ -1,0 +1,5 @@
+rootProject.name = 'dubbox-hessian-demo'
+include 'api'
+include 'provider'
+include 'consumer'
+
