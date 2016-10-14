@@ -2,6 +2,7 @@ package com.leolei.dubbodemo.consumer.controller;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.leolei.dubbodemo.api.IFileService;
 import com.leolei.dubbodemo.api.IHelloService;
 import com.leolei.dubbodemo.api.IUserService;
 import com.leolei.dubbodemo.api.User;
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,11 +27,18 @@ public class HelloController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private IFileService fileService;
 
     @RequestMapping(value = "/hello")
-    public ModelAndView hello(){
+    public ModelAndView hello() throws Exception {
 
-        String name = helloService.sayHello("world");
+        String name = "";
+        try {
+            name = helloService.sayHello("world");
+        } catch (Exception e){
+            String errorMsg = e.getMessage();
+        }
 
         Map<String,Object> data = new HashMap<>();
         data.put("username",name);
@@ -45,4 +56,18 @@ public class HelloController {
         return new ModelAndView("user",data);
     }
 
+
+    @RequestMapping(value = "/test")
+    public ModelAndView test() throws FileNotFoundException {
+
+        InputStream stream = new FileInputStream("/users/leiwei/baidu.png");
+
+        //org.springframework.web.multipart.commons.CommonsMultipartFile file = new CommonsMultipartFile();
+        fileService.upload("1234.txt",stream);
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("username","");
+
+        return new ModelAndView("user",data);
+    }
 }

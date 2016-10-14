@@ -10,9 +10,11 @@
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
-    <dubbo:reference interface="com.leolei.dubbodemo.api.IHelloService" id="helloService" />
+    <!--<dubbo:reference interface="com.leolei.dubbodemo.api.IHelloService" id="helloService" />-->
 
-    <dubbo:reference interface="com.leolei.dubbodemo.api.IUserService" id="userService"/>
+    <!--<dubbo:reference interface="com.leolei.dubbodemo.api.IUserService" id="userService"/>-->
+
+    <dubbo:reference interface="com.leolei.dubbodemo.api.IFileService" id="fileService" />
 
     <!--<dubbo:annotation/>-->
     <!--<context:component-scan base-package="com.leolei.dubbodemo.consumer.controller">-->

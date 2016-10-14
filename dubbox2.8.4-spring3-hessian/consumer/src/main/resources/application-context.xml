@@ -19,4 +19,6 @@
         <!--<context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Reference"/>-->
     <!--</context:component-scan>-->
 
+    <dubbo:reference interface="com.leolei.dubbodemo.api.IFileService" id="fileService" />
+
 </beans>

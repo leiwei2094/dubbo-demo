@@ -9,16 +9,19 @@
 
     <!--<dubbo:protocol name="hessian" port="8081" server="servlet" />-->
 
-    <dubbo:protocol name="dubbo" port="20880" />
+    <dubbo:protocol name="dubbo" port="20880" serialization="hessian2"/>
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
     <!--<dubbo:annotation package="com.leolei.dubbodemo.provider" />-->
 
-    <bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>
-    <dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService"/>
+    <!--<bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>-->
+    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService"/>-->
 
-    <bean id="userService" class="com.leolei.dubbodemo.provider.UserService" />
-    <dubbo:service interface="com.leolei.dubbodemo.api.IUserService" ref="userService" />
+    <!--<bean id="userService" class="com.leolei.dubbodemo.provider.UserService" />-->
+    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IUserService" ref="userService" />-->
+
+    <bean id="fileService" class="com.leolei.dubbodemo.provider.FileService" />
+    <dubbo:service interface="com.leolei.dubbodemo.api.IFileService" ref="fileService" />
 
 </beans>

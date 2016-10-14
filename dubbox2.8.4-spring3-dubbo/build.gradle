@@ -17,7 +17,9 @@ subprojects {
 }
 
 project(':api') {
-
+    dependencies {
+        compile("org.springframework:spring-webmvc:3.2.9.RELEASE")
+    }
 }
 
 project(':provider'){
