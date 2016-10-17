@@ -15,13 +15,19 @@
 
     <!--<dubbo:annotation package="com.leolei.dubbodemo.provider" />-->
 
-    <!--<bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>-->
-    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService"/>-->
+    <bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>
+    <dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService"/>
 
-    <!--<bean id="userService" class="com.leolei.dubbodemo.provider.UserService" />-->
-    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IUserService" ref="userService" />-->
+    <bean id="userService" class="com.leolei.dubbodemo.provider.UserService" />
+    <dubbo:service interface="com.leolei.dubbodemo.api.IUserService" ref="userService" />
 
     <bean id="fileService" class="com.leolei.dubbodemo.provider.FileService" />
     <dubbo:service interface="com.leolei.dubbodemo.api.IFileService" ref="fileService" />
+
+    <bean id="fileService2" class="com.leolei.dubbodemo.provider.FileService2" />
+    <dubbo:service interface="com.leolei.dubbodemo.api.IFileService2" ref="fileService2" />
+
+    <bean id="carService" class="com.leolei.dubbodemo.provider.CarService" />
+    <dubbo:service interface="com.leolei.dubbodemo.api.ICarService" ref="carService" />
 
 </beans>

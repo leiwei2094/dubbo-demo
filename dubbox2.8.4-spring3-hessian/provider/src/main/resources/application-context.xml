@@ -24,4 +24,10 @@
     <bean id="fileService" class="com.leolei.dubbodemo.provider.FileService" />
     <dubbo:service interface="com.leolei.dubbodemo.api.IFileService" ref="fileService" />
 
+    <bean id="fileService2" class="com.leolei.dubbodemo.provider.FileService2" />
+    <dubbo:service interface="com.leolei.dubbodemo.api.IFileService2" ref="fileService2" />
+
+    <bean id="fileService3" class="com.leolei.dubbodemo.provider.FileService3" />
+    <dubbo:service interface="com.leolei.dubbodemo.api.IFileService3" ref="fileService3" />
+
 </beans>

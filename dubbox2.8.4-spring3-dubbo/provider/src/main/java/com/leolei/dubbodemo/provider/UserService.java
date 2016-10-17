@@ -9,4 +9,9 @@ public class UserService implements IUserService {
     public User getUser(String name) {
         return new User(name);
     }
+
+    @Override
+    public String getName(User user) {
+        return "Hello" + user.getName();
+    }
 }

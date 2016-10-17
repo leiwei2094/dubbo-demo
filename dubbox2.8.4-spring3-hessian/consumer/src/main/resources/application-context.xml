@@ -19,6 +19,8 @@
         <!--<context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Reference"/>-->
     <!--</context:component-scan>-->
 
+    <dubbo:reference interface="com.leolei.dubbodemo.api.IFileService2" id="fileService2" />
     <dubbo:reference interface="com.leolei.dubbodemo.api.IFileService" id="fileService" />
+    <dubbo:reference interface="com.leolei.dubbodemo.api.IFileService3" id="fileService3" />
 
 </beans>
