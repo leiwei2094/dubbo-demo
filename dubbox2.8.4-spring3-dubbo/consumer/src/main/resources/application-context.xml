@@ -3,26 +3,26 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <dubbo:application name="dubbo-demo-consumer" />
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <!--<dubbo:registry address="zookeeper://114.55.245.219:2181" />-->
 
     <dubbo:reference interface="com.leolei.dubbodemo.api.IHelloService" id="helloService" />
 
-    <dubbo:reference interface="com.leolei.dubbodemo.api.IUserService" id="userService"/>
+    <!--<dubbo:reference interface="com.leolei.dubbodemo.api.IUserService" id="userService"/>-->
 
-    <dubbo:reference interface="com.leolei.dubbodemo.api.IFileService" id="fileService" />
+    <!--<dubbo:reference interface="com.leolei.dubbodemo.api.IFileService" id="fileService" />-->
 
-    <dubbo:reference interface="com.leolei.dubbodemo.api.IFileService2" id="fileService2" />
+    <!--<dubbo:reference interface="com.leolei.dubbodemo.api.IFileService2" id="fileService2" />-->
 
-    <dubbo:reference interface="com.leolei.dubbodemo.api.ICarService" id="carService" />
+    <!--<dubbo:reference interface="com.leolei.dubbodemo.api.ICarService" id="carService" />-->
 
-    <!--<dubbo:annotation/>-->
-    <!--<context:component-scan base-package="com.leolei.dubbodemo.consumer.controller">-->
-        <!--<context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Reference"/>-->
-    <!--</context:component-scan>-->
+    <context:component-scan base-package="com.leolei.dubbodemo.consumer" />
+    <mvc:annotation-driven/>
 
 </beans>

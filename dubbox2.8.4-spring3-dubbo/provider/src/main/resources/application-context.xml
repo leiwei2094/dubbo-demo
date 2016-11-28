@@ -2,32 +2,39 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <dubbo:application name="dubbo-demo-provider" />
 
+    <!--<dubbo:parameter key="shutdown.timeout" value="80000" />-->
     <!--<dubbo:protocol name="hessian" port="8081" server="servlet" />-->
 
     <dubbo:protocol name="dubbo" port="20880" serialization="hessian2"/>
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <!--<dubbo:registry address="zookeeper://114.55.245.219:2181" />-->
 
     <!--<dubbo:annotation package="com.leolei.dubbodemo.provider" />-->
 
     <bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>
-    <dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService"/>
+    <dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService" timeout="60000" retries="0"/>
 
-    <bean id="userService" class="com.leolei.dubbodemo.provider.UserService" />
-    <dubbo:service interface="com.leolei.dubbodemo.api.IUserService" ref="userService" />
+    <!--<bean id="userService" class="com.leolei.dubbodemo.provider.UserService" />-->
+    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IUserService" ref="userService" />-->
 
-    <bean id="fileService" class="com.leolei.dubbodemo.provider.FileService" />
-    <dubbo:service interface="com.leolei.dubbodemo.api.IFileService" ref="fileService" />
+    <!--<bean id="fileService" class="com.leolei.dubbodemo.provider.FileService" />-->
+    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IFileService" ref="fileService" />-->
 
-    <bean id="fileService2" class="com.leolei.dubbodemo.provider.FileService2" />
-    <dubbo:service interface="com.leolei.dubbodemo.api.IFileService2" ref="fileService2" />
+    <!--<bean id="fileService2" class="com.leolei.dubbodemo.provider.FileService2" />-->
+    <!--<dubbo:service interface="com.leolei.dubbodemo.api.IFileService2" ref="fileService2" />-->
 
-    <bean id="carService" class="com.leolei.dubbodemo.provider.CarService" />
-    <dubbo:service interface="com.leolei.dubbodemo.api.ICarService" ref="carService" />
+    <!--<bean id="carService" class="com.leolei.dubbodemo.provider.CarService" />-->
+    <!--<dubbo:service interface="com.leolei.dubbodemo.api.ICarService" ref="carService" />-->
+
+    <context:component-scan base-package="com.leolei.dubbodemo.provider" />
+    <mvc:annotation-driven/>
 
 </beans>
