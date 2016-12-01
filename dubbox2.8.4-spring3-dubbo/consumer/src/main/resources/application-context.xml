@@ -13,6 +13,7 @@
     <!--<dubbo:registry address="zookeeper://114.55.245.219:2181" />-->
 
     <dubbo:reference interface="com.leolei.dubbodemo.api.IHelloService" id="helloService" />
+    <!--<dubbo:monitor protocol="registry" />-->
 
     <!--<dubbo:reference interface="com.leolei.dubbodemo.api.IUserService" id="userService"/>-->
 

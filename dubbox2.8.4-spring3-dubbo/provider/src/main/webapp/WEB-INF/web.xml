@@ -10,8 +10,8 @@
     </context-param>
 
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-        <!--<listener-class>com.leolei.dubbodemo.provider.MyContextListener</listener-class>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+        <listener-class>com.leolei.dubbodemo.provider.MyContextListener</listener-class>
     </listener>
 
     <servlet>

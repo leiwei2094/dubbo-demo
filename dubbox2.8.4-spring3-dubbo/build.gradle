@@ -1,6 +1,10 @@
 allprojects {
     group = 'com.leolei'
     version = '1.0-SNAPSHOT'
+    configurations.all {
+        // check for updates every build
+        resolutionStrategy.cacheChangingModulesFor(0, 'seconds')
+    }
 }
 
 subprojects {
@@ -28,13 +32,19 @@ project(':provider'){
     //ext['jetty.version'] = '9.2.17.v20160517'
     dependencies {
         compile project(':api')
-        compile("com.alibaba:dubbo:2.8.4")
+        compile("com.alibaba:dubbo:2.5.4-SNAPSHOT"){
+            exclude(module: 'spring')
+            exclude(module: 'netty')
+        }
         compile("org.springframework:spring-webmvc:4.3.3.RELEASE")
         compile("com.caucho:hessian:4.0.7")
         compile("com.101tec:zkclient:0.9")
 
         compile("org.slf4j:slf4j-api:1.6.1")
         compile("org.slf4j:slf4j-log4j12:1.6.1")
+
+        compile 'javax.servlet:javax.servlet-api:3.1.0'
+
 //        compile ('org.springframework.boot:spring-boot-starter-web') {
 //            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
 //        }
@@ -56,13 +66,18 @@ project(':consumer') {
     //ext['jetty.version'] = '9.2.17.v20160517'
     dependencies {
         compile project(':api')
-        compile("com.alibaba:dubbo:2.8.4")
+        compile("com.alibaba:dubbo:2.5.4-SNAPSHOT"){
+            exclude(module: 'spring')
+            exclude(module: 'netty')
+        }
         compile("org.springframework:spring-webmvc:4.3.3.RELEASE")
         compile("com.caucho:hessian:4.0.7")
         compile("com.101tec:zkclient:0.9")
         //compile("org.springframework.boot:spring-boot-starter-web")
         compile("org.slf4j:slf4j-api:1.6.1")
         compile("org.slf4j:slf4j-log4j12:1.6.1")
+
+        compile 'javax.servlet:javax.servlet-api:3.1.0'
 //        compile ('org.springframework.boot:spring-boot-starter-web') {
 //            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
 //        }
@@ -76,14 +91,14 @@ project(':consumer') {
     }
 }
 
-buildscript {
-    repositories {
-        maven { url 'http://114.55.36.61:8087/nexus/content/groups/public/' }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
-    }
-}
+//buildscript {
+//    repositories {
+//        maven { url 'http://114.55.36.61:8087/nexus/content/groups/public/' }
+//    }
+//    dependencies {
+//        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+//    }
+//}
 
 configurations {
     compile.exclude group: 'ch.qos.logback'

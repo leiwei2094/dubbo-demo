@@ -14,7 +14,7 @@ public class HelloService implements IHelloService{
     public String sayHello(String name) {
         logger.info("Dubbo.shutdown.hook=" + System.getProperty(SHUTDOWN_HOOK_KEY));
         logger.info("Start to execute sayHello method......");
-        for (int i =0;i<8;i++){
+        for (int i =0;i<5;i++){
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

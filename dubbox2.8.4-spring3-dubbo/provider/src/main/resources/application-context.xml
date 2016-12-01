@@ -22,6 +22,7 @@
     <bean id="helloService" class="com.leolei.dubbodemo.provider.HelloService"/>
     <dubbo:service interface="com.leolei.dubbodemo.api.IHelloService" ref="helloService" timeout="60000" retries="0"/>
 
+    <!--<dubbo:monitor protocol="registry" />-->
     <!--<bean id="userService" class="com.leolei.dubbodemo.provider.UserService" />-->
     <!--<dubbo:service interface="com.leolei.dubbodemo.api.IUserService" ref="userService" />-->
 

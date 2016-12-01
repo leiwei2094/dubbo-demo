@@ -17,7 +17,13 @@ public class MyContextListener extends org.springframework.web.context.ContextLo
     @Override
     public void contextDestroyed(ServletContextEvent event) {
         // stop running threads
-        stopRunningThreads();
+        //stopRunningThreads();
+
+//        try {
+//            Thread.sleep(10 * 1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         // execute dubbo shutdown hook first
         logger.info("start to execute ProtocolConfig.destroyAll......");
@@ -34,34 +40,34 @@ public class MyContextListener extends org.springframework.web.context.ContextLo
 
     public MyContextListener(WebApplicationContext context) {super(context);}
 
-    public void stopRunningThreads() {
-        logger.info("start to stop running threads......");
-
-        final Set<Thread> threads = Thread.getAllStackTraces().keySet();
-        for (Thread thread : threads) {
-            if (needManualDestroy(thread)) {
-                synchronized (this) {
-                    try {
-                        thread.stop();
-                        logger.info(String.format("Destroy  %s successful", thread));
-                    } catch (Exception e) {
-                        logger.warn(String.format("Destroy %s error", thread), e);
-                    }
-                }
-            }
-        }
-        logger.info("complete stop running threads......");
-    }
-
-    private boolean needManualDestroy(Thread thread){
-        final String threadName = thread.getName();
-        for (String manualDestroyThreadIdentifier : MANUAL_DESTROY_THREAD_IDENTIFIERS) {
-            if (threadName.contains(manualDestroyThreadIdentifier)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static final List<String> MANUAL_DESTROY_THREAD_IDENTIFIERS = Arrays.asList("Hashed wheel timer");
+//    public void stopRunningThreads() {
+//        logger.info("start to stop running threads......");
+//
+//        final Set<Thread> threads = Thread.getAllStackTraces().keySet();
+//        for (Thread thread : threads) {
+//            if (needManualDestroy(thread)) {
+//                synchronized (this) {
+//                    try {
+//                        thread.stop();
+//                        logger.info(String.format("Destroy  %s successful", thread));
+//                    } catch (Exception e) {
+//                        logger.warn(String.format("Destroy %s error", thread), e);
+//                    }
+//                }
+//            }
+//        }
+//        logger.info("complete stop running threads......");
+//    }
+//
+//    private boolean needManualDestroy(Thread thread){
+//        final String threadName = thread.getName();
+//        for (String manualDestroyThreadIdentifier : MANUAL_DESTROY_THREAD_IDENTIFIERS) {
+//            if (threadName.contains(manualDestroyThreadIdentifier)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    private static final List<String> MANUAL_DESTROY_THREAD_IDENTIFIERS = Arrays.asList("Hashed wheel timer");
 }
