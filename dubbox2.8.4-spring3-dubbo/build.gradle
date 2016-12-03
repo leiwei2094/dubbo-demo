@@ -27,9 +27,9 @@ project(':api') {
 }
 
 project(':provider'){
-    apply plugin: 'war'
-    //apply plugin: 'org.springframework.boot'
-    //ext['jetty.version'] = '9.2.17.v20160517'
+    //apply plugin: 'war'
+    apply plugin: 'org.springframework.boot'
+    ext['jetty.version'] = '9.2.17.v20160517'
     dependencies {
         compile project(':api')
         compile("com.alibaba:dubbo:2.5.4-SNAPSHOT"){
@@ -43,13 +43,13 @@ project(':provider'){
         compile("org.slf4j:slf4j-api:1.6.1")
         compile("org.slf4j:slf4j-log4j12:1.6.1")
 
-        compile 'javax.servlet:javax.servlet-api:3.1.0'
+        //compile 'javax.servlet:javax.servlet-api:3.1.0'
 
-//        compile ('org.springframework.boot:spring-boot-starter-web') {
-//            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-//        }
-//        compile ('org.springframework.boot:spring-boot-starter-jetty')
-//        compile ('org.springframework.boot:spring-boot-starter-actuator')
+        compile ('org.springframework.boot:spring-boot-starter-web') {
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        }
+        compile ('org.springframework.boot:spring-boot-starter-jetty')
+        compile ('org.springframework.boot:spring-boot-starter-actuator')
     }
     configurations {
         compile.exclude group: 'ch.qos.logback'
@@ -61,9 +61,9 @@ project(':provider'){
 }
 
 project(':consumer') {
-    apply plugin: 'war'
-    //apply plugin: 'org.springframework.boot'
-    //ext['jetty.version'] = '9.2.17.v20160517'
+    //apply plugin: 'war'
+    apply plugin: 'org.springframework.boot'
+    ext['jetty.version'] = '9.2.17.v20160517'
     dependencies {
         compile project(':api')
         compile("com.alibaba:dubbo:2.5.4-SNAPSHOT"){
@@ -77,13 +77,12 @@ project(':consumer') {
         compile("org.slf4j:slf4j-api:1.6.1")
         compile("org.slf4j:slf4j-log4j12:1.6.1")
 
-        compile 'javax.servlet:javax.servlet-api:3.1.0'
-//        compile ('org.springframework.boot:spring-boot-starter-web') {
-//            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-//        }
-//        compile ('org.springframework.boot:spring-boot-starter-jetty')
-//        compile ('org.springframework.boot:spring-boot-starter-actuator')
-
+        //compile 'javax.servlet:javax.servlet-api:3.1.0'
+        compile ('org.springframework.boot:spring-boot-starter-web') {
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        }
+        compile ('org.springframework.boot:spring-boot-starter-jetty')
+        compile ('org.springframework.boot:spring-boot-starter-actuator')
     }
     configurations {
         compile.exclude group: 'ch.qos.logback'
@@ -91,14 +90,14 @@ project(':consumer') {
     }
 }
 
-//buildscript {
-//    repositories {
-//        maven { url 'http://114.55.36.61:8087/nexus/content/groups/public/' }
-//    }
-//    dependencies {
-//        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
-//    }
-//}
+buildscript {
+    repositories {
+        maven { url 'http://114.55.36.61:8087/nexus/content/groups/public/' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
+}
 
 configurations {
     compile.exclude group: 'ch.qos.logback'

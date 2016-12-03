@@ -1,18 +1,21 @@
-//package com.leolei.dubbodemo.provider;
-//
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.ComponentScan;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.context.annotation.ImportResource;
-//
-//import javax.servlet.ServletContextListener;
-//
-//@ComponentScan
-//@Configuration
-//@ImportResource(locations={"classpath:application-context.xml"})
-//public class ApplicationConfiguration {
-//    @Bean
-//    public ServletContextListener listener(){
-//        return new MyContextListener();
-//    }
-//}
+package com.leolei.dubbodemo.provider;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.core.annotation.Order;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+@ComponentScan
+@Configuration
+@ImportResource(locations={"classpath:application-context.xml"})
+public class ApplicationConfiguration {
+
+    @Bean
+    public ServletContextListener listener(){
+        return new ContextDestroyListener();
+    }
+}

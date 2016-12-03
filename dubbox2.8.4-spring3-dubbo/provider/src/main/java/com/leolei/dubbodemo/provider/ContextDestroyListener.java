@@ -1,5 +1,6 @@
 package com.leolei.dubbodemo.provider;
 
+import com.alibaba.dubbo.config.ProtocolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,6 +37,10 @@ public class ContextDestroyListener implements ServletContextListener{
                 }
             }
         }
+
+        logger.info("start to execute ProtocolConfig.destroyAll......");
+        ProtocolConfig.destroyAll();
+        logger.info("Complete execute ProtocolConfig.destroyAll......");
     }
 
     private boolean needManualDestroy(Thread thread){
